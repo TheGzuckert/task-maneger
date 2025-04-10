@@ -39,6 +39,7 @@ http://localhost:9000
 -  ⚡ Requisições assíncronas via AJAX
 -  🛡️ Validação de dados de entrada
 -  🔍 Sistema de busca personalizado
+-  📱 Responsividade com Mobile (Mobile Fisrt)
 
 
 ### 📺 Caso queria ver o sistema funcioanndo
