@@ -6,7 +6,7 @@ use App\Models\Task;
 use Illuminate\Contracts\View\View;
 use Illuminate\Routing\Controller as BaseController;
 
-class TaskController extends BaseController
+class Controller extends BaseController
 {
 
     public function index(): View
