@@ -35,21 +35,20 @@ class TaskApiController extends BaseController
         }
 
         $task = Task::createTask($title, $description, 'Pendente');
-
         return response()->json(['message' => 'Tarefa criada com sucesso!', 'task' => $task], 201);
     }
 
     public function update(Request $request, $id): JsonResponse
     {
+        $title = $request->input('title');
+        $description = $request->input('description');
+        $status = $request->input('status');
+
         $task = Task::find($id);
 
         if (!$task) {
             return response()->json(['message' => 'Tarefa não encontrada.'], 404);
         }
-
-        $title = $request->input('title');
-        $description = $request->input('description');
-        $status = $request->input('status');
 
         $checkStatus = Task::checkStatusAvaible($status);
 
@@ -57,8 +56,13 @@ class TaskApiController extends BaseController
             return response()->json(['message' => 'Status inválido.'], 400);
         }
 
-        $task->update(['title' => $title, 'description' => $description, 'status' => $status]);
+        $checkExists = Task::checkTaskExist($title);
 
+        if ($checkExists) {
+            return response()->json(['message' => 'Já temos uma tarefa com esse titulo cadastrado, por favor escolha outro titulo'], 400);
+        }
+
+        $task->update(['title' => $title, 'description' => $description, 'status' => $status]);
         return response()->json(['message' => 'Tarefa atualizada com sucesso!', 'task' => $task]);
     }
 
@@ -71,7 +75,6 @@ class TaskApiController extends BaseController
         }
 
         $task->delete();
-
         return response()->json(['message' => 'Tarefa excluída com sucesso!']);
     }
 
@@ -99,7 +102,6 @@ class TaskApiController extends BaseController
         }
 
         $task->save();
-
         return response()->json(['message' => 'Status atualizado com sucesso!']);
     }
 
