@@ -22,7 +22,7 @@ Execute o seguinte comando na raiz do projeto:
 
 ```bash
 docker compose up -d
-```bash
+```
 
 ### 🖥️ Acessando o Sistema
 
@@ -30,7 +30,7 @@ Após a instalação, o projeto estará disponível em:
 
 ```bash
 http://localhost:9000
-```bash
+```
 
 ### ✨ Funcionalidades e Diferenciais
 
