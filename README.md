@@ -15,6 +15,10 @@ Antes de iniciar, verifique se você possui os seguintes requisitos instalados:
 
 1. Renomeie o arquivo `.env.example` para `.env`, **ou**  
 2. Crie um novo arquivo `.env` e copie o conteúdo de `.env.example`.
+3. Ou copie o comando `cp .env.example .env` para o terminal.
+```bash
+cp .env.example .env
+ ```
 
 ### 📦 Instalando Dependências
 
